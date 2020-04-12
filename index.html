@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/bcbb08b5c8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
+        <audio src="http://codingtutorials360.com/14244764.mp3" id="buzzer" type="audio/mpeg"></audio>
         <title>Pomodoro Clock</title>
     </head>
     <body>
@@ -21,9 +22,9 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">Session</h3>
                             <div class="row row-cols-3 text-center">
-                                <i class="col card-text fas fa-angle-up fa-3x"></i>
-                                <h2 class="col card-text">25</h2>
-                                <i class="col card-text fas fa-angle-down fa-3x"></i>
+                                <i id="session-up" class="col card-text fas fa-angle-up fa-3x"></i>
+                                <h2 id="session-time" class="col card-text">25</h2>
+                                <i id="session-down" class="col card-text fas fa-angle-down fa-3x"></i>
                             </div>
                         </div>
                     </div>
@@ -33,9 +34,9 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">Break</h3>
                             <div class="row row-cols-3 text-center">
-                                <i class="col card-text fas fa-angle-up fa-3x"></i>
-                                <h2 class="col card-text">5</h2>
-                                <i class="col card-text fas fa-angle-down fa-3x"></i>
+                                <i id="break-up" class="col card-text fas fa-angle-up fa-3x"></i>
+                                <h2 id="break-time" class="col card-text">5</h2>
+                                <i id="break-down" class="col card-text fas fa-angle-down fa-3x"></i>
                             </div>
                         </div>
                     </div>
@@ -47,11 +48,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title text-center">Time</h3>
-                            <h2 class="card-text text-center">25:00</h2>
+                            <h2 id="timer" class="card-text text-center">25:00 </h2>
                             <div class="row row-cols-3 text-center">
-                                <i class="col fas fa-play fa-2x"></i>
-                                <i class="col fas fa-stop fa-2x"></i>
-                                <i class="col fas fa-sync-alt fa-2x"></i>
+                                <i id="play" class="col fas fa-play fa-2x"></i>
+                                <i id="stop" class="col fas fa-stop fa-2x"></i>
+                                <i id="reset" class="col fas fa-sync-alt fa-2x"></i>
                             </div>
                             </div>
                         </div>

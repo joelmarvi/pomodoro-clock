@@ -9,3 +9,11 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+i {
+    cursor: pointer;
+}
+
+i:hover {
+    color: green;
+}
