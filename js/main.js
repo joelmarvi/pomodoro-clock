@@ -58,7 +58,7 @@ $(document).ready(function(){
     // Click handlers for controlling the session
     $("#play").click(countdown);
     $("#stop").click(pauseCountdown);
-    // $("#reset").click(resetCountdown);
+    $("#reset").click(resetCountdown);
 
     
     
@@ -132,6 +132,20 @@ $(document).ready(function(){
         clearInterval(id);
         id = true;
         currentTime = sessionTime;
+    }
+
+    function resetCountdown() {
+        clearInterval(id);
+        id = true;
+        sessionTime = currentTime = workTime = minToSec(25);
+        breakTime = minToSec(5);
+
+        $("#session-time").text(25);
+        $("#break-time").text(5);
+        $("#timer").text(secToTimeString(sessionTime));
+        $("#timer").css("color", "black");
+        $("#activity").text("Session");
+        onDeck = "Break";
     }
 
 });
