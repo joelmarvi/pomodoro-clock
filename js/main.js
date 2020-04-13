@@ -57,7 +57,7 @@ $(document).ready(function(){
 
     // Click handlers for controlling the session
     $("#play").click(countdown);
-    // $("#stop").click(pauseCountdown);
+    $("#stop").click(pauseCountdown);
     // $("#reset").click(resetCountdown);
 
     
@@ -126,6 +126,12 @@ $(document).ready(function(){
                 $("#timer").css("color", "green");
             }
         }
+    }
+
+    function pauseCountdown() {
+        clearInterval(id);
+        id = true;
+        currentTime = sessionTime;
     }
 
 });
