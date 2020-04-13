@@ -55,6 +55,15 @@ $(document).ready(function(){
         }
     });
 
+    // Click handlers for controlling the session
+    $("#play").click(countdown);
+    // $("#stop").click(pauseCountdown);
+    // $("#reset").click(resetCountdown);
+
+    
+    
+    // FUNCTIONS
+
     // Convert Break and Session time from minutes to seconds
     function minToSec(min) {
         return min * 60;
@@ -75,6 +84,47 @@ $(document).ready(function(){
         // Add a leading zero
         function n(n) {
             return n > 9 ? "" + n : "0" + n
+        }
+    }
+
+    // Start pomodoro
+    function countdown() {
+        if (id === true) {
+            sessionTime = currentTime;
+            id = setInterval(decrement, 1000);
+        }
+
+        // Timing function
+        function decrement() {
+            // Toggle between session and break
+            if (sessionTime == 0) {
+                buzzer.play();
+                $("#activity").text(onDeck);
+                switch (onDeck) {
+                    case "Break":
+                        sessionTime = breakTime;
+                        onDeck = "Session";
+                        break;
+                    case "Session":
+                        sessionTime = workTime;
+                        onDeck = "Break";
+                        break;
+                }
+                $("#timer").text(secToTimeString(sessionTime));
+            } else {
+                sessionTime--;
+                $("#timer").text(secToTimeString(sessionTime));
+            }
+
+            // Change colors based on percentage of time left
+            let percentLeft = Math.floor((sessionTime / workTime) * 100);
+            if (percentLeft <= 10) {
+                $("#timer").css("color", "red");
+            } else if (percentLeft <= 25) {
+                $("#timer").css("color", "yellow");
+            } else {
+                $("#timer").css("color", "green");
+            }
         }
     }
 

@@ -17,3 +17,7 @@ i {
 i:hover {
     color: green;
 }
+
+.card {
+    background-color: rgb(173, 162, 162);
+}
